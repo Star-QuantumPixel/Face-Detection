@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Real-Time Face Detection</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="toast-container" id="toast-container"></div>
+    <div class="background-blobs">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+    </div>
+
+    <main class="glass-container">
+        <header>
+            <div class="title-group">
+                <h1>Face Detection</h1>
+                <span class="badge pulse">Live</span>
+            </div>
+            <div class="stats">
+                <div class="stat-item">
+                    <span class="label">Faces</span>
+                    <span class="value" id="face-count">0</span>
+                </div>
+                <div class="stat-item">
+                    <span class="label">Latency</span>
+                    <span class="value" id="latency-val">-- ms</span>
+                </div>
+            </div>
+        </header>
+
+        <div class="video-wrapper">
+            <video id="webcam" autoplay playsinline muted></video>
+            <canvas id="overlay"></canvas>
+            
+            <div class="skeleton-overlay" id="skeleton-overlay">
+                <div class="spinner"></div>
+                <p>Initializing Vision Core...</p>
+            </div>
+            <div class="status-overlay" id="status-overlay">
+                <p>Waiting for permission...</p>
+            </div>
+        </div>
+        
+        <div class="enroll-section">
+            <h3>Enroll New Face</h3>
+            <div class="enroll-controls">
+                <input type="text" id="enroll-name" placeholder="Enter name for the face in view..." autocomplete="off">
+                <button id="enroll-btn" class="btn secondary">Enroll</button>
+            </div>
+            <p id="enroll-msg" class="msg"></p>
+        </div>
+
+        <footer>
+            <button id="toggle-btn" class="btn primary">Start Detection</button>
+            <div class="controls">
+                <label>
+                    Target FPS
+                    <input type="range" id="fps-slider" min="1" max="30" value="15">
+                    <span id="fps-val">15</span>
+                </label>
+            </div>
+        </footer>
+    </main>
+
+    <script src="app.js"></script>
+</body>
+</html>

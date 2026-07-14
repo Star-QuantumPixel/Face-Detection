@@ -1,0 +1,24 @@
+# Python pycache
+**/__pycache__/
+**/*.pyc
+
+# Virtual environments
+venv/
+.venv/
+env/
+
+# Deep learning models (downloaded dynamically or heavy binaries)
+face_detection_system/models/*.onnx
+face_detection_system/models/*.caffemodel
+
+# Local user face enrollment database
+face_detection_system/models/enrolled_faces.npy
+
+# Outputs
+face_detection_system/output/
+face_detection_system/results/
+
+# User IDE settings
+.vscode/
+.idea/
+.gemini/

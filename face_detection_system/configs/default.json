@@ -1,0 +1,47 @@
+{
+  "detector": {
+    "type": "dnn",
+    "confidence_threshold": 0.5,
+    "dnn": {
+      "model_dir": "models",
+      "input_size": [300, 300],
+      "mean": [104.0, 177.0, 123.0],
+      "nms_threshold": 0.4
+    },
+    "haar": {
+      "frontal_model": "models/haarcascade_frontalface_default.xml",
+      "profile_model": "models/haarcascade_profileface.xml",
+      "eye_model": "models/haarcascade_eye.xml",
+      "scale_factor": 1.1,
+      "min_neighbors": 5,
+      "min_face_size": [30, 30],
+      "use_eye_validation": false
+    }
+  },
+  "input": {
+    "source_type": "webcam",
+    "source": 0,
+    "target_fps": 30,
+    "resize": null
+  },
+  "post_processor": {
+    "min_face_pixels": 20,
+    "max_face_fraction": 0.95,
+    "smooth_alpha": 0.6,
+    "min_frames": 2,
+    "max_disappeared": 10
+  },
+  "output": {
+    "output_dir": "output",
+    "save_crops": false,
+    "save_json": false,
+    "save_csv": false
+  },
+  "display": {
+    "show_window": true,
+    "window_title": "Face Detection System",
+    "show_confidence": true,
+    "show_track_id": true,
+    "overlay_fps": true
+  }
+}
